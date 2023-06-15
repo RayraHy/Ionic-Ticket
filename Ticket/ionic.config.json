@@ -1,0 +1,7 @@
+{
+  "name": "Ticket",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
