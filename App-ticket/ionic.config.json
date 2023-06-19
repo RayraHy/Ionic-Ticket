@@ -1,0 +1,7 @@
+{
+  "name": "App-ticket",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}

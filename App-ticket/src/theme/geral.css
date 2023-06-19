@@ -1,0 +1,49 @@
+ion-title {
+    font-size: larger;
+}
+
+ion-content {
+    --padding-top: 80px;
+    
+}
+
+ion-toolbar {
+    --background: rgba(224, 61, 61, 0);
+    padding-top: 10px;
+    padding-bottom: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+    
+}
+
+ion-header {
+    background: linear-gradient(to bottom, #ffffff, #ff00009d);
+    background-size: 100% 95px;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 20px;
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  
+  
+
+
