@@ -6,7 +6,14 @@
   </ion-page>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
 
+export default {
+  data() {
+    return {
+      
+    }
+  }
+}
 </script>
