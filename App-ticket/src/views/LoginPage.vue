@@ -21,7 +21,7 @@
                     <ion-row>
                         <ion-col>
                             <ion-radio-group v-model="tipo" allow-empty-selection="true" value="turtles">
-                                <ion-radio value="aluno" style="right: 16px;">Aluno</ion-radio><br/>
+                                <ion-radio value="integrante" style="right: 16px;">Integrante</ion-radio>
                                 <ion-radio value="atendente">Atendente</ion-radio>
                             </ion-radio-group>
                         </ion-col>
@@ -48,7 +48,7 @@ export default {
       senha: '',
       resposta: '',
       page: true,
-      tipo: 'aluno'
+      tipo: 'integrante'
     };
   },
   mounted() {
@@ -64,7 +64,7 @@ export default {
       formData.append('senha', this.senha);
 
       try {
-        if(this.tipo === 'aluno') {
+        if(this.tipo === 'integrante') {
             const response = await axios.post('http://localhost/Api-banco/loginC.php', formData);
             if (response.data.success) {
             // Redireciona para a página de sucesso (por exemplo, página inicial do aplicativo)

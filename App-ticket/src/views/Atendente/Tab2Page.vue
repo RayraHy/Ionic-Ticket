@@ -6,13 +6,16 @@
             <form @submit="submitForm">
                 {{ resposta }}
                 <ion-item>
-                    <ion-input label="Nome" v-model="nome" type="text" required></ion-input>
+                    <ion-input label="Nome: " v-model="nome" type="text" required></ion-input>
                 </ion-item>
                 <ion-item>
-                    <ion-input label="Email" v-model="email" type="text" required></ion-input>
+                    <ion-input label="Cpf: " v-model="cpf" type="text" required></ion-input>
                 </ion-item>
                 <ion-item>
-                    <ion-input label="senha" v-model="senha" type="password" required></ion-input>
+                    <ion-input label="Email: " v-model="email" type="text" required></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-input label="senha: " v-model="senha" type="password" required></ion-input>
                 </ion-item>
                 <br>
                 <ion-button expand="full" type="submit" >Cadastrar</ion-button>
@@ -34,6 +37,7 @@ export default {
         nome: '',
         email: '',
         senha: '',
+        cpf: '',
         resposta: '',
         page: false
     }
@@ -49,6 +53,7 @@ export default {
       formData.append('nome', this.nome);
       formData.append('email', this.email);
       formData.append('senha', this.senha);
+      formData.append('cpf', this.cpf);
 
       try {
         const response = await axios.post('http://localhost/Api-banco/CadasT.php', formData);
@@ -56,6 +61,7 @@ export default {
         this.nome = '';
         this.email = '';
         this.senha = '';
+        this.cpf = '';
         // Trate a resposta da API conforme necessário
       } catch (error) {
         console.error(error);

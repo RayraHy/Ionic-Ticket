@@ -10,8 +10,8 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
   // Configurações do banco de dados
   $host = "localhost";
   $user = "root";
-  $pass = "34644656";
-  $dbname = "db_tcc_estacionamento";
+  $pass = "root";
+  $dbname = "db_ticket";
 
   // Conexão com o banco de dados
   $conn = new mysqli($host, $user, $pass, $dbname);
@@ -20,7 +20,7 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
   }
 
   // Consulta SQL para verificar as credenciais de login
-  $sql = "SELECT * FROM tb_cliente WHERE cd_email_cliente = '$email' AND cd_senha_cliente = '$senha'";
+  $sql = "SELECT * FROM tb_atendente WHERE cd_email_atendente = '$email' AND cd_senha_atendente = '$senha'";
   $result = $conn->query($sql);
 
   if ($result->num_rows == 1) {

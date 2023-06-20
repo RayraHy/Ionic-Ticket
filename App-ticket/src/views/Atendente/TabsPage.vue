@@ -5,6 +5,9 @@
             <img style="height: 59px; width: auto;" src="@/img/logodrc.png">
         </ion-toolbar>
       </ion-header>
+      <ion-footer class="footer-toolbar">
+        <ion-button class="sairbu" @click="Deslogar()">Sair da conta</ion-button>
+      </ion-footer>
     <ion-tabs>
       <ion-router-outlet></ion-router-outlet>
       <ion-tab-bar slot="bottom">
@@ -20,14 +23,39 @@
 
         <ion-tab-button tab="tab3" href="/tabsT/tab3">
           <ion-icon aria-hidden="true" :icon="square" />
-          <ion-label>Cadastro aluno</ion-label>
+          <ion-label>Cadastro integrante</ion-label>
         </ion-tab-button>
       </ion-tab-bar>
     </ion-tabs>
   </ion-page>
 </template>
 
-<script setup lang="ts">
-import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage, IonRouterOutlet, IonHeader, IonToolbar } from '@ionic/vue';
+<script lang="ts">
+import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage, IonRouterOutlet, IonHeader, IonToolbar, IonFooter, IonButton } from '@ionic/vue';
 import { ellipse, square, triangle } from 'ionicons/icons';
+
+export default {
+  components: {
+    IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage, IonRouterOutlet, IonHeader, IonToolbar, IonFooter, IonButton
+  },
+  methods: {
+    Deslogar() {
+      this.$router.push('/Login');
+    },
+}
+}
 </script>
+
+<style scoped>
+.sairbu {
+  padding-bottom: 20px;
+  margin-left: 50px;
+}
+
+.footer-toolbar {
+  position: fixed;
+  bottom: 40px;
+  width: 100%;
+  
+}
+</style>
