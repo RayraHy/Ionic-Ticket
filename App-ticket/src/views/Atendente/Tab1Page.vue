@@ -1,8 +1,10 @@
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
-      <ion-list v-if="componenteAtivo == null">
+      <ion-list>
         <ion-item v-for=" ticket in tickets" :key="ticket">
+
+
           {{ ticket.ds_gravidade_ticket}}
         </ion-item>
       </ion-list>

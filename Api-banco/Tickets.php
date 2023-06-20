@@ -1,42 +1,46 @@
 <?php
-
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
-    $host = "localhost";
-  $user = "root";
-  $pass = "root";
-  $dbname = "db_ticket";
 
-  // Conexão com o banco de dados
-  $conn = new mysqli($host, $user, $pass, $dbname);
-  if ($conn->connect_error) {
-    die("Falha na conexão com o banco de dados: " . $conn->connect_error);
-  }
 
-  // Consulta SQL para verificar as credenciais de login
-  $sql = "SELECT * FROM tb_ticket";
+$host = "localhost";
+$user = "root";
+$pass = "root";
+$dbname = "db_ticket";
+$port = 3306;
 
-  $result = $conn->query($sql);
+    //Conexão com a porta
+    $conn = new mysqli($host, $user, $pass, $dbname, );
+    //Conexão sem a porta
+    // Verificar a conexão
+    if ($conn->connect_error) {
+        die("Falha na conexão com o banco de dados: " . $conn->connect_error);
+    }
 
-  if ($result->num_rows == 1) {
-    // Login bem-sucedido
-    $response = [
-      'success' => true,
-      'message' => 'Login successful',
-    ];
-  } else {
-    // Credenciais inválidas
-    $response = [
-      'success' => false,
-      'message' => 'Email ou senha invalido',
-    ];
-  }
+    // Consulta para recuperar os dados do banco de dados
+    $sql = "SELECT * FROM tb_ticket";
+    $result = $conn->query($sql);
 
-  // Fecha a conexão com o banco de dados
-  $conn->close();
+    // Verificar se há resultados
+    if ($result->num_rows > 0) {
+        $dados = array();
 
-// Retorna a resposta como JSON
-header('Content-Type: application/json');
-echo json_encode($response);
+        // Converter os resultados em um array associativo
+        while ($row = $result->fetch_assoc()) {
+            $dados[] = $row;
+        }
+
+        // Definir cabeçalho como JSON
+        header('Content-Type: application/json');
+
+        // Enviar os dados em formato JSON para o Ionic
+        echo json_encode($dados);
+    } else {
+        echo "Nenhum resultado encontrado.";
+    }
+
+    // Fechar a conexão com o banco de dados
+    $conn->close();
+    ?>

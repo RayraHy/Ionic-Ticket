@@ -20,7 +20,7 @@ if ($conn->connect_error) {
 }
 
 // Verifica se o email já está cadastrado
-$checkEmailQuery = "SELECT * FROM tb_login WHERE cd_email_login = '$email'";
+$checkEmailQuery = "SELECT * FROM tb_integrante WHERE cd_email_integrante = '$email'";
 $result = $conn->query($checkEmailQuery);
 if ($result->num_rows > 0) {
     $response = array(
@@ -33,7 +33,7 @@ if ($result->num_rows > 0) {
 }
 
 // Insere o novo usuário no banco de dados
-$insertQuery = "INSERT INTO tb_login (cd_email_login, cd_senha_login) VALUES ('$email', '$senha', )";
+$insertQuery = "INSERT INTO tb_integrante (cd_email_integrante, cd_senha_integrante) VALUES ('$email', '$senha', )";
 if ($conn->query($insertQuery) === TRUE) {
     $response = array(
         'status' => 'success',

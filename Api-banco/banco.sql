@@ -1,7 +1,7 @@
 -- show databases;
 -- SELECT @@autocommit;
 
- -- drop database db_ticket;
+-- drop database db_ticket;
  create database db_ticket;
  use db_ticket;
 
@@ -11,40 +11,35 @@ nm_integrante varchar (100),
 cd_email_integrante varchar(45),
 cd_senha_integrante varchar (20),
 cd_numero1 varchar (20),
-cd_CEP int,
+cd_CEP varchar (11),
 constraint pk_integrantes
-primary key(cd_integrantes),
-foreign key(cd_bairro)
-references tb_bairro(cd_bairro)
- ON DELETE CASCADE 
- ON UPDATE CASCADE)
+primary key(cd_integrantes))
 engine=InnoDB;
 -- Inserção nas tb_integrantes
-INSERT INTO tb_integrantes VALUES (1, 'Zaratrusca', 1, 1);
 insert into tb_integrantes values
-(2,	'Emanuelly Mariana Souza','zaratrusca@gmail.com', '124144mxczx.A',	'99469-4443',	'8897897898'),
-(3,	'Eduarda Eduarda Galvão','emanuellysouza@etec.sp.gov.br',	'Ta9DzP6cGh','99469-4443',	'8897897898'),
-(4,	'Jaqueline Catarina da Rocha', 'eduardaeduardagalvao@etec.sp.gov.br',	'meCs2yw2gx','99469-4443',	'8897897898'),
-(5,	'Luiz Theo Erick Rocha', '', '','99469-4443',	'8897897898'),
-(6,	'Larissa Tatiane Pereira', '', '','99469-4443',	'8897897898'),
-(7,	'Emily Aline Priscila da Silva', '', '','99469-4443',	'8897897898'),
-(8,	'Jéssica Catarina Fogaça', '', '','99469-4443',	'8897897898'),
-(9,	'Fátima Stefany Vera da Mota', '', '','99469-4443',	'8897897898'),
-(10,'Marcelo Isaac Silveira', '', '','99469-4443',	'8897897898'),
-(11,'Levi Geraldo Thales Rodrigues', '', '','99469-4443',	'8897897898'),
-(12,'Igor Edson Assis', '', '','99469-4443',	'8897897898'),
-(13,'Caio Gabriel Manoel Melo', '', '','99469-4443',	'8897897898'),
-(14,'Amanda Marina Catarina Alves', '', '','99469-4443',	'8897897898'),
-(15,'Arthur Rafael da Mata', '', '','99469-4443',	'8897897898'),
-(16,'Luana Isabella das Neves',  '', '','99469-4443',	'8897897898'),
-(17,'Alice Sabrina Peixoto', '', '','99469-4443',	'8897897898'),
-(18,'Mário Manoel Bento Gonçalves', '', '','99469-4443',	'8897897898'),
-(19,'Jennifer Carolina Vitória Barros', '', '','99469-4443',	'8897897898'),
-(20,'Noah Lucca Miguel Assunção', '', '','99469-4443',	'8897897898'),
-(21,'Antonio Manuel Viana', '', '','99469-4443',	'8897897898'),
-(22,'teste1teste', '', '','99469-4443',	'8897897898'),
-(23,'teste2teste', '', '','99469-4443',	'8897897898'),
-(24,'teste3teste', '', '','99469-4443',	'8897897898');
+(2,	'Emanuelly Mariana Souza','zaratrusca@gmail.com', '124144mxczx.A',	'99469-4443',	'12345678912'),
+(3,	'Eduarda Eduarda Galvão','emanuellysouza@etec.sp.gov.br',	'Ta9DzP6cGh','99469-4443',	'12345678912'),
+(4,	'Jaqueline Catarina da Rocha', 'eduardaeduardagalvao@etec.sp.gov.br',	'meCs2yw2gx','99469-4443',	'12345678912'),
+(5,	'Luiz Theo Erick Rocha', '', '','99469-4443',	'12345678912'),
+(6,	'Larissa Tatiane Pereira', '', '','99469-4443',	'12345678912'),
+(7,	'Emily Aline Priscila da Silva', '', '','99469-4443',	'12345678912'),
+(8,	'Jéssica Catarina Fogaça', '', '','99469-4443',	'12345678912'),
+(9,	'Fátima Stefany Vera da Mota', '', '','99469-4443',	'12345678912'),
+(10,'Marcelo Isaac Silveira', '', '','99469-4443',	'12345678912'),
+(11,'Levi Geraldo Thales Rodrigues', '', '','99469-4443',	'12345678912'),
+(12,'Igor Edson Assis', '', '','99469-4443',	'12345678912'),
+(13,'Caio Gabriel Manoel Melo', '', '','99469-4443',	'12345678912'),
+(14,'Amanda Marina Catarina Alves', '', '','99469-4443',	'12345678912'),
+(15,'Arthur Rafael da Mata', '', '','99469-4443',	'12345678912'),
+(16,'Luana Isabella das Neves',  '', '','99469-4443',	'12345678912'),
+(17,'Alice Sabrina Peixoto', '', '','99469-4443',	'12345678912'),
+(18,'Mário Manoel Bento Gonçalves', '', '','99469-4443',	'12345678912'),
+(19,'Jennifer Carolina Vitória Barros', '', '','99469-4443',	'12345678912'),
+(20,'Noah Lucca Miguel Assunção', '', '','99469-4443',	'12345678912'),
+(21,'Antonio Manuel Viana', '', '','99469-4443',	'12345678912'),
+(22,'teste1teste', '', '','99469-4443',	'12345678912'),
+(23,'teste2teste', '', '','99469-4443',	'12345678912'),
+(24,'teste3teste', '', '','99469-4443',	'12345678912');
 
 create table if not exists tb_atendente(
 cd_atendente int not null auto_increment,
@@ -84,7 +79,7 @@ insert into tb_atendente values
   
 create table if not exists tb_ticket(
 cd_ticket int not null auto_increment,
-cd_descricao_ticket varchar(100),
+ds_descricao_ticket varchar(100),
 dt_data_inicio date,
 dt_data_fim date,
 hr_data_inicio datetime,
@@ -97,7 +92,7 @@ constraint pk_ticket
 primary key(cd_ticket))
 engine=InnoDB;
  -- Inserção nas tb_ticket
-INSERT INTO tb_ticket VALUES (1, 1, '2017-01-22', '2017-01-23', '12:10:09', '16:10:09', 1, 1, 1, 1, 1);
+INSERT INTO tb_ticket VALUES (1, 'czcsda', '2017-01-22', '2017-01-23', '12:10:09', '16:10:09', 1, 1, 'sdfs', 'sdf');
 
 select inte.nm_integrante as 'Nome do integrante', log.cd_email_login as 'E-mail do integrante', des.conteudo as 'Descrição do Ticket', ate.nm_atendente as 'Nome do atendente', ate.cd_email_atendente as 'E-mail Atendente', ate.status_atendente as 'Status do atendente', ava.descricao_atendimento as 'Descrição do atendimento', ete.nm_instituicao as 'Nome da instituiçaõ', gra.nm_gravidade_ticket as 'Gravidade do Ticket'
 from tb_etec as ete 
@@ -109,10 +104,13 @@ join tb_login as log
 on log.cd_login = inte.cd_login
 , 
 tb_descricao_ticket as des
+
 join  tb_ticket as tik
 on tik.cd_descricao_ticket = des.cd_descricao_ticket
+
 join tb_avaliacao_atendimento as ava
 on ava.cd_avaliacao_atendimento = tik.cd_avaliacao_atendimento
+
 join tb_gravidade_ticket as gra
 on gra.cd_gravidade_ticket = tik.cd_gravidade_ticket;
 
