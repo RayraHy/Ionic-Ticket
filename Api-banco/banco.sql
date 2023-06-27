@@ -17,7 +17,7 @@ primary key(cd_integrantes))
 engine=InnoDB;
 -- Inserção nas tb_integrantes
 insert into tb_integrantes values
-(2,	'Emanuelly Mariana Souza','zaratrusca@gmail.com', '124144mxczx.A',	'99469-4443',	'12345678912'),
+(2,	'Emanuelly Mariana Souza','Ray@', '123',	'99469-4443',	'12345678912'),
 (3,	'Eduarda Eduarda Galvão','emanuellysouza@etec.sp.gov.br',	'Ta9DzP6cGh','99469-4443',	'12345678912'),
 (4,	'Jaqueline Catarina da Rocha', 'eduardaeduardagalvao@etec.sp.gov.br',	'meCs2yw2gx','99469-4443',	'12345678912'),
 (5,	'Luiz Theo Erick Rocha', '', '','99469-4443',	'12345678912'),
@@ -54,7 +54,7 @@ engine=InnoDB;
 -- Inserção nas tb_atendente
 INSERT INTO tb_atendente VALUES (1, 'ativo', 'jamesclear@gmail.com', 'JS2382d.', '76022010861', 'James Clear');
 insert into tb_atendente values
-(2,	'ativo',	'elisa-darocha74@etec.sp.gov.br',	'30sxy1bMnp',	'74600375084'	,'Elisa Rita'),
+(2,	'ativo',	'Ray@',	'123',	'74600375084'	,'Elisa Rita'),
 (3,	'ativo',	'davi_tiago_nunes@etec.sp.gov.br',	'poi6kbJlFz',	'26912354670',	'Davi Tiago Nunes'),
 (4,	'ativo',	'eliane.tatiane.daluz@etec.sp.gov.br',	'B6WCbDumP5',	'66444543800',	'Eliane Tatiane da Luz'),
 (5,	'ativo', 'diogo-figueiredo81@etec.sp.gov.br',	'5ZFij3j7xw',	'78003992303',	'Diogo Samuel Ryan Figueiredo'),
@@ -115,3 +115,5 @@ join tb_gravidade_ticket as gra
 on gra.cd_gravidade_ticket = tik.cd_gravidade_ticket;
 
 -- drop database db_ticket;
+
+SELECT * FROM tb_integrantes;

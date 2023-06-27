@@ -1,26 +1,12 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
-header("Access-Control-Allow-Headers: Content-Type, Authorization");
+include_once 'Conexão.php';
 
 if (isset($_POST['email']) && isset($_POST['senha'])) {
   $email = $_POST['email'];
   $senha = $_POST['senha'];
 
-  // Configurações do banco de dados
-  $host = "localhost";
-  $user = "root";
-  $pass = "root";
-  $dbname = "db_ticket";
-
-  // Conexão com o banco de dados
-  $conn = new mysqli($host, $user, $pass, $dbname);
-  if ($conn->connect_error) {
-    die("Falha na conexão com o banco de dados: " . $conn->connect_error);
-  }
-
   // Consulta SQL para verificar as credenciais de login
-  $sql = "SELECT * FROM tb_login WHERE cd_email_login = '$email' AND cd_senha_login = '$senha'";
+  $sql = "SELECT * FROM tb_integrantes WHERE cd_email_integrante = '$email' AND cd_senha_integrante = '$senha'";
   $result = $conn->query($sql);
 
   if ($result->num_rows == 1) {

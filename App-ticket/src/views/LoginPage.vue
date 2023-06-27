@@ -48,43 +48,50 @@ export default {
       senha: '',
       resposta: '',
       page: true,
-      tipo: 'integrante'
+      tipo: 'integrante',
+      
     };
   },
   mounted() {
     window.history.replaceState({}, document.title, window.location.pathname);
   },
   methods: {
-    
     async submitForm(event) {
       event.preventDefault(); // Evita o comportamento padrão do envio do formulário
 
       const formData = new FormData();
       formData.append('email', this.email);
       formData.append('senha', this.senha);
+      formData.append('tipo' , this.tipo);
 
       try {
-        if(this.tipo === 'integrante') {
-            const response = await axios.post('http://localhost/Api-banco/loginC.php', formData);
-            if (response.data.success) {
-            // Redireciona para a página de sucesso (por exemplo, página inicial do aplicativo)
-            this.$router.replace('/tabsC');
-            } else {
-            // Lida com a resposta de erro do backend (por exemplo, exibe uma mensagem de erro)
-            this.resposta = response.data.message;
-            console.log(response.data.message);
-            }
-        } else {
-            const response = await axios.post('http://localhost/Api-banco/loginT.php', formData);
-            if (response.data.success) {
-            // Redireciona para a página de sucesso (por exemplo, página inicial do aplicativo)
-            this.$router.replace('/tabsT');
-            } else {
-            // Lida com a resposta de erro do backend (por exemplo, exibe uma mensagem de erro)
-            this.resposta = response.data.message;
-            console.log(response.data.message);
-            }
-        }
+            if(this.tipo == 'integrante') {
+                const response = await axios.post('http://localhost/Api-banco/loginC.php', formData);
+                if (response.data.success) {
+                // Redireciona para a página de sucesso (por exemplo, página inicial do aplicativo)
+                this.$router.replace('/tabsC/');
+                this.resposta = response.data.message;
+                this.$store.dispatch('setCliente', response.data.cd_integrantes);
+                } else {
+                // Lida com a resposta de erro do backend (por exemplo, exibe uma mensagem de erro)
+                this.resposta = response.data.message;
+                console.log(response.data.message);
+                }
+              } else {
+              const response = await axios.post('http://localhost/Api-banco/loginT.php', formData);
+              if (response.data.success) {
+              // Redireciona para a página de sucesso (por exemplo, página inicial do aplicativo)
+              this.$router.replace('/tabsT/');
+              this.resposta = response.data.message;
+              this.$store.dispatch('setCliente', response.data.cd_atendente);
+          
+
+              } else {
+              // Lida com a resposta de erro do backend (por exemplo, exibe uma mensagem de erro)
+              this.resposta = response.data.message;
+              console.log(response.data.message);
+              }
+          }
       } catch (error) {
         console.error(error);
       }

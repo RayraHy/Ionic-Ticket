@@ -4,7 +4,7 @@
       <ion-list>
         <ion-item v-for=" ticket in tickets" :key="ticket">
 
-
+          
           {{ ticket.ds_gravidade_ticket}}
         </ion-item>
       </ion-list>
@@ -27,6 +27,8 @@
 <script lang="ts">
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonLabel, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButton } from '@ionic/vue';
 import axios from 'axios';
+
+
 
 export default {
   components: {

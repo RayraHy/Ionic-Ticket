@@ -5,19 +5,19 @@
             <img style="height: 59px; width: auto;" src="@/img/logodrc.png">
         </ion-toolbar>
       </ion-header>
-      <ion-footer class="footer-toolbar">
+      <ion-footer class="footer-toolbar" >
         <ion-button class="sairbu" @click="Deslogar()">Sair da conta</ion-button>
       </ion-footer>
     <ion-tabs>
       <ion-router-outlet></ion-router-outlet>
       <ion-tab-bar slot="bottom">
         <ion-tab-button tab="tab1" href="/tabsC/tab1">
-          <ion-icon aria-hidden="true" :icon="triangle" />
+          <ion-icon aria-hidden="true" />
           <ion-label>Tickets</ion-label>
         </ion-tab-button>
 
         <ion-tab-button tab="tab2" href="/tabsC/tab2">
-          <ion-icon aria-hidden="true" :icon="ellipse" />
+          <ion-icon aria-hidden="true" />
           <ion-label>Conta</ion-label>
         </ion-tab-button>
 
