@@ -5,7 +5,7 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
 $host = "localhost";
 $user = "root";
-$pass = "root";
+$pass = "34644656";
 $dbname = "db_ticket";
 $port = 3306;
 

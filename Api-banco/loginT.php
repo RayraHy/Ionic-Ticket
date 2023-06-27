@@ -11,15 +11,18 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
 
   if ($result->num_rows == 1) {
     // Login bem-sucedido
+    $cliente = $result->fetch_assoc();
     $response = [
       'success' => true,
       'message' => 'Login successful',
+      'cd_atendente' => $cliente['cd_atendente']
     ];
   } else {
     // Credenciais inválidas
     $response = [
       'success' => false,
       'message' => 'Email ou senha invalido',
+      'cd_atendente' => null
     ];
   }
 
@@ -30,6 +33,7 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
   $response = [
     'success' => false,
     'message' => 'Precisa do email e senha',
+    'cd_integrantes' => null
   ];
 }
 

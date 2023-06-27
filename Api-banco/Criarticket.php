@@ -1,10 +1,13 @@
 <?php
 include_once 'Conexão.php';
 
-$ds = $_POST[''];
+$cliente = $_POST['cliente'];
+$ds = $_POST['ds'];
+$data = $_POST['data'];
+$grav = $_POST['grav'];
+$status = $_POST['ds_status'];
 
-
-$insertQuery = "INSERT INTO tb_ticket (cd_ticket, ds_descricao_ticket, dt_data_inicio, dt_data_fim, hr_data_inicio, cd_atendente, cd_integrantes, ds_gravidade_ticket, ds_status_ticket) VALUES ('$cdcliente','$esta','$data','$hora','$status','$taxa','$veicu')";
+$insertQuery = "INSERT INTO tb_ticket (ds_descricao_ticket, dt_data_inicio, cd_integrantes, ds_gravidade_ticket, ds_status_ticket) VALUES ('$ds','$data','$cliente','$grav','$status')";
 if ($conn->query($insertQuery) === TRUE) {
     $response = array(
         'status' => 'success',
