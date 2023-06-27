@@ -75,6 +75,7 @@ export default {
     
   },
     mounted() {
+          
           this.DadosPHP();
           window.history.replaceState({}, document.title, window.location.pathname);
         },
@@ -98,7 +99,7 @@ export default {
       formData.append('ds', this.ds);
       formData.append('data', this.dt_data);
       formData.append('grav', this.grav);
-      formData.append('ds_status', this.ds_status);
+      formData.append('ds_status', this.status);
 
 
       axios.post('http://localhost/Api-banco/Criarticket.php', formData)
