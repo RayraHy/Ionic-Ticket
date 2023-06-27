@@ -93,6 +93,21 @@ primary key(cd_ticket))
 engine=InnoDB;
  -- Inserção nas tb_ticket
 INSERT INTO tb_ticket VALUES (1, 'czcsda', '2017-01-22', '2017-01-23', '12:10:09', '16:10:09', 1, 1, 'sdfs', 'sdf');
+INSERT INTO tb_ticket VALUES (3, 'Torneira quebrada', '2023-05-23', '2017-05-24', '12:10:09', '09:00:09', 1, 1, 'Medio', 'Concluido');
+INSERT INTO tb_ticket VALUES 
+(4, 'Descarga diparada', '2023-06-24', '2023-06-25', '12:10:09', '10:10:00', 2, 4, 'Altissima', 'Em andamento'),
+(5, 'Torneira bebedouro', '2023-06-23', '2023-06-23', '11:10:09', '12:00:09', 3, 4, 'Alta', 'Em andamento'),
+(6, 'Ventilador Danificado ', '2023-06-23', '2017-06-24', '10:11:00', '12:00:00', 4, 2, 'Alta', 'Em andamento'),
+(7, 'Goteira na Sala 4', '2023-06-27', '0000-00-00', '12:10:09', '00:00:00', 5, 6, 'Alta', 'Aberta'),
+(8, 'Tomada dando Choque', '2023-06-27', '0000-00-00', '11:07:09', '00:00:09', 5, 4, 'Altissima', 'Aberta');
+
+
+
+UPDATE tb_ticket
+SET ds_status_ticket = 'Descarga disparada'
+WHERE cd_ticket IN (1);	
+
+select * from tb_ticket;
 
 select inte.nm_integrante as 'Nome do integrante', log.cd_email_login as 'E-mail do integrante', des.conteudo as 'Descrição do Ticket', ate.nm_atendente as 'Nome do atendente', ate.cd_email_atendente as 'E-mail Atendente', ate.status_atendente as 'Status do atendente', ava.descricao_atendimento as 'Descrição do atendimento', ete.nm_instituicao as 'Nome da instituiçaõ', gra.nm_gravidade_ticket as 'Gravidade do Ticket'
 from tb_etec as ete 
