@@ -6,7 +6,7 @@
         </ion-toolbar>
       </ion-header>
       <ion-footer class="footer-toolbar">
-        <ion-button class="sairbu" @click="Deslogar()">Sair da conta</ion-button>
+        <!-- <ion-button class="sairbu" @click="Deslogar()">Sair da conta</ion-button> -->
       </ion-footer>
     <ion-tabs>
       <ion-router-outlet></ion-router-outlet>
